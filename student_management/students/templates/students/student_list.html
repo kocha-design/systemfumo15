@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orodha ya Wanafunzi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Orodha ya Wanafunzi</h1>
+        <a href="{% url 'add_student' %}" class="btn btn-primary mb-3">Ongeza Mwanafunzi Mpya</a>
+        <a href="{% url 'add_result' %}" class="btn btn-secondary mb-3">Ongeza Matokeo</a>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Jina la Kwanza</th>
+                    <th>Jina la Mwisho</th>
+                    <th>Umri</th>
+                    <th>Darasa</th>
+                    <th>Vitendo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.grade }}</td>
+                    <td><a href="{% url 'view_results' student.id %}" class="btn btn-info btn-sm">Tazama Matokeo</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
