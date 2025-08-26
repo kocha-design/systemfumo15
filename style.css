@@ -1,0 +1,167 @@
+:root {
+  --green: #0f7a4a;
+  --dark-bg: #1e1e1e;
+  --dark-text: #f5f5f5;
+  --light-bg: #f2f2f2;
+  --light-text: #333;
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.container {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  width: 400px;
+  text-align: center;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.dark .container {
+  background-color: #2a2a2a;
+}
+
+h1 {
+  margin-bottom: 25px;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--green);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #095a35;
+  transform: scale(1.05);
+}
+
+#result {
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--green);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Chart */
+#symptomChart {
+  margin-top: 20px;
+}
+
+/* Dark/Light toggle */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--green);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  0% {opacity:0; transform: translateY(-20px);}
+  100% {opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  0% {opacity:0; transform: translateY(20px);}
+  100% {opacity:1; transform: translateY(0);}
+}
+

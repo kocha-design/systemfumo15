@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corona Symptom Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="toggle-container">
+      <span>☀️</span>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span>🌙</span>
+    </div>
+
+    <h1>Corona Symptom Checker</h1>
+
+    <form id="coronaForm">
+      <label><input type="checkbox" name="symptom" value="fever"> Fever</label>
+      <label><input type="checkbox" name="symptom" value="cough"> Cough</label>
+      <label><input type="checkbox" name="symptom" value="tiredness"> Tiredness</label>
+      <label><input type="checkbox" name="symptom" value="loss_of_taste"> Loss of taste or smell</label>
+      <label><input type="checkbox" name="symptom" value="difficulty_breathing"> Difficulty breathing</label>
+      <label><input type="checkbox" name="symptom" value="sore_throat"> Sore throat</label>
+      <button type="submit">Check Risk</button>
+    </form>
+
+    <div id="result"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Symptom Chart -->
+    <canvas id="symptomChart" width="400" height="200"></canvas>
+
+    <!-- Audio Alert -->
+    <audio id="alertSound">
+      <source src="deep_bass.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
